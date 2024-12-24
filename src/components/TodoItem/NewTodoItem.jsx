@@ -13,7 +13,7 @@ const Input = styled.input`
     font-size: 15px;
     color: rgba(63,63,63,0.6);
   }
-`
+`;
 
 export const NewTodoItem = () => {
   const {mutate, isPending, isSuccess} = useSaveNewTodoItem();
@@ -31,7 +31,7 @@ export const NewTodoItem = () => {
     const newValue = event.nativeEvent.target.value;
     const clearedValue = newValue.replace(/\d/, '');
     setValue(clearedValue);
-  }
+  };
 
   const onInputKeyPressed = (event) => {
     if (event.key !== 'Enter') {
@@ -44,7 +44,7 @@ export const NewTodoItem = () => {
     }
 
     mutate({title: value, priority: priority});
-  }
+  };
 
   return (
     <TodoItemContainer>
@@ -59,5 +59,5 @@ export const NewTodoItem = () => {
         disabled={isPending}
       />
     </TodoItemContainer>
-  )
-}
+  );
+};

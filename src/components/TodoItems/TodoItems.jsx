@@ -4,6 +4,7 @@ import {NewTodoItem} from '../TodoItem/NewTodoItem';
 import {TodoItem} from '../TodoItem/TodoItem';
 import {useData} from '../../data/hooks/useData';
 import {SearchInput} from './components/SearchInput';
+import { SortButton } from './components/SortButton';
 
 export const TodoItems = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -22,7 +23,7 @@ export const TodoItems = () => {
         return isSearched;
       });
 
-      setSortedItems(filteredBySearchItems.sort((a, b) => b.priority - a.priority));
+      setSortedItems(filteredBySearchItems.sort((a, b) => a.priority - b.priority));
     }
   }, [todoItems]);
 
@@ -44,7 +45,7 @@ export const TodoItems = () => {
   });
 
   const onSortByPriorityClicked = () => {
-    setSortedItems(filteredBySearchItems.sort((a, b) => b.priority - a.priority));
+    setSortedItems(filteredBySearchItems.sort((a, b) => a.priority - b.priority));
   };
 
   const todoItemsElements = sortedItems ? sortedItems.map((item, index) => {
@@ -56,9 +57,9 @@ export const TodoItems = () => {
   return (
     <TodoItemsContainer>
       <SearchInput value={searchValue} setValue={setSearchValue} setSortedItems={setSortedItems}/>
-        <button onClick={onSortByPriorityClicked}>Отсортировать по возрастанию приоритета</button>
-        {todoItemsElements}
+      {todoItemsElements.length > 1 ? <SortButton onClick={onSortByPriorityClicked} /> : ''}
+      {todoItemsElements}
       <NewTodoItem />
     </TodoItemsContainer>
-  )
-}
+  );
+};

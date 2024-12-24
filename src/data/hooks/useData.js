@@ -1,6 +1,6 @@
 import {LocalStorage} from '../services/LocalStorage';
 import {useMutation, useQuery, useQueryClient} from '@tanstack/react-query';
-import {TodoItem} from '../entity/TodoItem'
+import {TodoItem} from '../entity/TodoItem';
 
 export const useData = () => {
   const {data, isLoading} = useQuery({
@@ -12,7 +12,7 @@ export const useData = () => {
     data,
     isLoading,
   };
-}
+};
 
 export const useSaveNewTodoItem = () => {
   const client = useQueryClient();
@@ -27,12 +27,8 @@ export const useSaveNewTodoItem = () => {
     },
   });
 
-  return {
-    mutate,
-    isPending,
-    isSuccess
-  }
-}
+  return {mutate, isPending, isSuccess};
+};
 
 export const useDeleteTodoItem = () => {
   const client = useQueryClient();
@@ -46,8 +42,8 @@ export const useDeleteTodoItem = () => {
     }
   });
 
-  return {mutate}
-}
+  return {mutate};
+};
 
 export const useUpdateTodoItem = () => {
   const client = useQueryClient();
@@ -61,5 +57,5 @@ export const useUpdateTodoItem = () => {
     }
   });
 
-  return {mutate}
-}
+  return {mutate};
+};

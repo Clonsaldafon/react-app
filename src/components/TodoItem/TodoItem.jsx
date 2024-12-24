@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import styled, { css } from "styled-components"
-import {TodoItemContainer} from './TodoItemContainer'
+import styled, { css } from "styled-components";
+import {TodoItemContainer} from './TodoItemContainer';
 import {TodoItemCheckbox} from './TodoItemCheckbox';
 import { useDeleteTodoItem } from '../../data/hooks/useData';
 import { PriorityInput } from './PriorityInput';
@@ -8,7 +8,7 @@ import { PriorityInput } from './PriorityInput';
 const checkedCss = css`
   color: #B5B5BA;
   text-decoration: line-through;
-`
+`;
 
 const Title = styled.span(props => {
   return `
@@ -17,21 +17,21 @@ const Title = styled.span(props => {
     font-size: 15px;
     ${props.checked ? checkedCss : ''};
   `;
-})
+});
 
 const Delete = styled.span`
   display: inline-block;
-  width: 13px;
-  height: 13px;
+  width: 24px;
+  height: 16px;
   background-image: url(assets/images/png/delete.png);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 13px;
+  background-size: 16px;
   cursor: pointer;
 `;
 
 export const TodoItem = ({id, title, checked, priority}) => {
-  const [color, setColor] = useState(240 - 120 / priority);
+  const [color, setColor] = useState(255 / priority);
   const {mutate} = useDeleteTodoItem();
 
   const onDeleteClicked = () => {
@@ -43,7 +43,7 @@ export const TodoItem = ({id, title, checked, priority}) => {
   };
 
   return (
-    <TodoItemContainer style={{backgroundColor: `rgb(${color}, 0, 0)`}}>
+    <TodoItemContainer style={{backgroundColor: `rgb(${color}, 100, 50)`}}>
       <TodoItemCheckbox id={id} disabled={false} checked={checked} priority={priority} />
       <PriorityInput id={id} checked={checked} priority={priority} setColor={setColor} />
       <Title checked={checked}>
@@ -51,5 +51,5 @@ export const TodoItem = ({id, title, checked, priority}) => {
       </Title>
       <Delete onClick={onDeleteClicked}/>
     </TodoItemContainer>
-  )
-}
+  );
+};

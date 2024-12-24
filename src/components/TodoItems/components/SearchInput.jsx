@@ -1,7 +1,6 @@
 import React from 'react';
 import {styled} from 'styled-components';
 
-
 const Input = styled.input``;
 
 export const SearchInput = ({value, setValue, setSortedItems}) => {
@@ -10,7 +9,7 @@ export const SearchInput = ({value, setValue, setSortedItems}) => {
       setValue(event.nativeEvent.target.value);
       setSortedItems(null);
     }
-  }
+  };
 
-  return <Input value={value} onChange={onInputChange} placeholder='Поиск' />
-}
+  return <Input value={value} onChange={onInputChange} placeholder='Поиск' />;
+};

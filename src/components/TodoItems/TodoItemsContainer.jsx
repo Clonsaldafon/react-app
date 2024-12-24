@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from "styled-components"
+import styled from "styled-components";
 
 const Root = styled.div`
   display: flex;
@@ -8,5 +8,5 @@ const Root = styled.div`
 `;
 
 export const TodoItemsContainer = (props) => { 
-  return <Root>{props.children}</Root>
-}
+  return <Root>{props.children}</Root>;
+};

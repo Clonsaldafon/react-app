@@ -27,10 +27,13 @@ export const PriorityInput = ({id, checked, priority, setPriorityForNewTask, set
 
     return (
         <Input value={priority} onChange={onValueChanged} >
-            {[1, 2, 3, 4, 5].map(num =>
-                <option key={num} value={num}>
-                    {num}
-                </option>)}
+            {
+                [1, 2, 3, 4, 5].map(num =>
+                    <option key={num} value={num}>
+                        {num}
+                    </option>
+                )
+            }
         </Input>
     );
-}
+};

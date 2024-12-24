@@ -20,7 +20,7 @@ export const LocalStorage = {
     
         resolve(data);
       }, 500);
-    })
+    });
   },
 
   saveTodoItemToLocalStorage: (todoItem) => {
@@ -42,7 +42,7 @@ export const LocalStorage = {
         localStorage.setItem(TODO_ITEMS_LOCAL_STORAGE_KEY, JSON.stringify(newTodoItems));
         resolve();
       })
-    })
+    });
   },
 
   updateTodoItemInLocalStorage: (id, checked, priority) => {
@@ -60,6 +60,6 @@ export const LocalStorage = {
         localStorage.setItem(TODO_ITEMS_LOCAL_STORAGE_KEY, JSON.stringify(newTodoItems));
         resolve();
       })
-    })
+    });
   }
-}
+};

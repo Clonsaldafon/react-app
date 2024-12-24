@@ -39,4 +39,4 @@ export const RootWrapper = (props) => {
       </Main>
     </Wrapper>
   );
-}
+};
