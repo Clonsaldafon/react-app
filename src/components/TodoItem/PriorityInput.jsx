@@ -19,7 +19,7 @@ export const PriorityInput = ({id, checked, priority, setPriorityForNewTask, set
         }
 
         if (setColor) {
-            setColor(240 - 120 / e.target.value);
+            setColor(255 / e.target.value);
         }
         
         mutate({ id, checked, priority: e.target.value });
